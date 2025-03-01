@@ -4,12 +4,12 @@ Laboratorio número 3 de Procesamiento Digital de Señales
 - Isabel Sofía Maldonado Roa
 - Daniel Guillermo Espinosa Parra.
 
-## Introducción:
+## INTRODUCCIÓN:
 
 Este informe analiza el problema del cóctel, donde múltiples voces se combinan en un entorno con un alto nivel de ruido. Durante el laboratorio, se capturaron señales de audio mediante micrófonos y se aplicaron técnicas de procesamiento digital, como la transformada de Fourier y el análisis de componentes independientes (ICA), con el fin de aislar una voz específica. El objetivo es evaluar la eficacia de dichos métodos en la extracción de señales acústicas dentro de escenarios complejos.
 
 
-## Requiermimentos: 
+## REQUERIMIENTOS: 
 
 -  Interfaz de python (para este caso 3.12)
 - numpy 
@@ -19,7 +19,7 @@ Este informe analiza el problema del cóctel, donde múltiples voces se combinan
 - sklearn.decomposition 
 - sounddevice
 
-## Importar las señales 
+## IMPORTAR LAS SEÑALES:
 
 En este laboratorio, se llevó a cabo un montaje utilizando dos micrófonos y dos personas con el objetivo de aplicar el método ICA para separar y escuchar las señales de audio de manera individual. En la configuración empleada, el primer micrófono se ubicó a 1.23 metros de Isabel y a 2.43 metros de Daniel, mientras que el segundo se posicionó a 1.32 metros de Isabel y a 1.46 metros de Daniel, recreando así el montaje diseñado para el experimento.
 
@@ -177,7 +177,7 @@ Se observa de la imagen anterior que el filtro fue aplicado de manera correcta, 
 Por otro lado, en algunos momentos se escucha la segunda voz, lo que indica que en varios intervalos ambas voces comparten frecuencias y magnitudes similares. Esto dificulta la separación efectiva mediante Análisis de Componentes Independientes (ICA) y filtrado pasa banda, ya que el algoritmo asume que las fuentes son estadísticamente independientes, lo cual no siempre se cumple en señales de voz superpuestas.
 
 
-## Analísis de SNR: 
+## ANALÍSIS DEL SNR: 
 
 El snr es la relación entre la potencia de la señal y la potencia del ruido en un sistema. Se expresa en decibelios (dB) y mide la calidad de la señal, un valor alto genera menos interferencia entre el ruido y la señal orignial 
 
@@ -185,7 +185,8 @@ El snr es la relación entre la potencia de la señal y la potencia del ruido en
 
 El Análisis de Componentes Independientes (ICA) es una técnica útil para la separación de fuentes de audio, permitiendo aislar parcialmente las voces. Sin embargo, presenta limitaciones cuando las señales comparten frecuencias y magnitudes similares, lo que afecta la calidad de la separación. Además, la intensidad de la voz principal se redujo y la segunda voz aún era perceptible en algunos momentos. Como resultado, se obtuvo un SNR de 0 dB, indicando que la separación no fue completamente efectiva. 
 
-### referencias:
+
+## REFERENCIAS:
 - todas las imagenes descritas en este repositorio son de autoria propia de los desarrolladores del mismo.
 - Hyvärinen, A., & Oja, E. (2000). Independent component analysis: algorithms and applications. Neural Networks: The Official Journal of the International Neural Network Society, 13(4–5), 411–430. https://doi.org/10.1016/s0893-6080(00)00026-5
 - Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J., van der Walt, S. J., Brett, M., Wilson, J., Millman, K. J., Mayorov, N., Nelson, A. R. J., Jones, E., Kern, R., Larson, E., … Vázquez-Baeza, Y. (2020). SciPy 1.0: fundamental algorithms for scientific computing in Python. Nature Methods, 17(3), 261–272. https://doi.org/10.1038/s41592-019-0686-2
