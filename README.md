@@ -128,6 +128,12 @@ El espectrograma del Micrófono 2 muestra una distribución de frecuencias con c
 
 La distribución espectral muestra que el micrófono 1 podría tener una mejor captura de la voz sin tanta contaminación de ruido.
 
+## SEPARACIÓN DE COMPONENTES (ICA) Y FILTRADO:
+
+Para poder aislar solo una voz y poder reproducirla, se deben separar los componentes de la señal combinada y filtrarlos, ya que por medio de los gráficos de la FFT y el espectrográma se observo mayor presencia de energía entre las frecuencias de entre 300 y 5000 Hz se realizará un filtro digital para ese intervalo.
+
+
+
 
 ## Analísis de SNR: 
 
