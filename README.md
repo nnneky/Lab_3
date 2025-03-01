@@ -119,6 +119,7 @@ De lo anterior se obtuvo lo siguiente:
 
 
 ![image](https://github.com/user-attachments/assets/73ced020-32f4-41b6-904d-8a82fa2a3040)
+
 El espectrograma del Micrófono 1 muestra una mayor presencia de energía en frecuencias bajas y medias (entre 0 y 5 kHz), lo cual es típico de una señal de voz.
 
 
