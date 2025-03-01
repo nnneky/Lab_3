@@ -86,9 +86,8 @@ def calcular_fft(signal, fs, title="Espectro de Frecuencia"): ## se definen los 
     plt.show()
 
 ## Se llaman la función para cálcular la FFT de cada señal con la frecuencia de muestreo de 44 kHz
-calcular_fft(mic1, fs1, title="FFT de Microfono 1 Original")
-calcular_fft(mic1_ruidoso, fs1, title="FFT de Microfono 1 con Ruido")
-calcular_fft(fuente_final, fs1, title="FFT de Fuente Filtrada")
+calcular_fft(mic1, fs1, title="FFT de Microfono 1")
+calcular_fft(mic2, fs1, title="FFT de Microfono 2 ")
 ```
 Despues de ejecutar estas lineas de código de obtuvieron los siguientes gráficos de la FFT:
 
@@ -112,7 +111,18 @@ def mostrar_espectrograma(signal, fs, title="Espectrograma"): ## variables neces
     plt.colorbar(label="Intensidad (dB)")
     plt.show()
 
+mostrar_espectrograma(mic1, fs1, title="Espectrograma de Microfono 1")
+mostrar_espectrograma(mic2, fs1, title="Espectrograma de Microfono 2")
+
 ```
+De lo anterior se obtuvo lo siguiente:
+
+
+![image](https://github.com/user-attachments/assets/73ced020-32f4-41b6-904d-8a82fa2a3040)
+
+
+![image](https://github.com/user-attachments/assets/cffb56aa-c0c1-4bcf-af56-97873b430aa3)
+
 
 
 
