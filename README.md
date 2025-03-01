@@ -84,7 +84,15 @@ def calcular_fft(signal, fs, title="Espectro de Frecuencia"): ## se definen los 
     plt.xlabel("Frecuencia (Hz)")
     plt.ylabel("Magnitud")
     plt.show()
+
+## Se llaman la función para cálcular la FFT de cada señal con la frecuencia de muestreo de 44 kHz
+calcular_fft(mic1, fs1, title="FFT de Microfono 1 Original")
+calcular_fft(mic1_ruidoso, fs1, title="FFT de Microfono 1 con Ruido")
+calcular_fft(fuente_final, fs1, title="FFT de Fuente Filtrada")
 ```
+Despues de ejecutar estas lineas de código de obtuvieron los siguientes gráficos de la FFT:
+
+
 
 
 
