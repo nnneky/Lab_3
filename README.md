@@ -142,6 +142,18 @@ def filtro_pasabanda(signal, fs, lowcut, highcut, order=6): ## variables y param
     b, a = butter(order, [low, high], btype='band') ## se crean las especificaciones del filtro
     return filtfilt(b, a, signal) ## se aplica el filtro dos veces para que no haya desface
 
+### Separación de Fuentes con ICA
+ica = FastICA(n_components=1, max_iter=1000, tol=0.0001) ## Se Crea un objeto FastICA para realizar la separación de fuentes
+fuente_extraida = ica.fit_transform(mic_combinado_ruidoso.reshape(-1, 1)).flatten() ## Aplica el algoritmo ICA para extraer la fuente independiente más significativa.
+fuente_filtrada = filtro_pasabanda(fuente_extraida, fs1, 500, 3000, order=8) ## Aplica un filtro pasa banda para dejar solo las frecuencias con más energía (voz)(500-3000 Hz) y eliminar ruidos 
+
+# Normalización
+fuente_filtrada /= np.max(np.abs(fuente_filtrada)) ## Normaliza la señal para que su valor máximo sea 1 o -1, evitando saturación
+
+### Guardado y Reproducción de Señal Filtrada
+wav.write("fuente_unica_filtrada.wav", fs1, np.int16(fuente_filtrada * 32767)) ## Guarda la señal filtrada como un archivo de audio WAV.   convirtiendola de float32 a int16
+sd.play(fuente_filtrada, fs1) ## reproduce la señal filtrada
+sd.wait()
 
 ```
 
