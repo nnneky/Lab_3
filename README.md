@@ -1,6 +1,8 @@
 # Laboratorio 3 || FIESTA DE COCTEL
 
-Laboratorio número 3 de Procesamiento Digital de Señales || Isabel Sofía Maldonado Roa y Daniel Guillermo Espinosa Parra.
+Laboratorio número 3 de Procesamiento Digital de Señales 
+- Isabel Sofía Maldonado Roa
+- Daniel Guillermo Espinosa Parra.
 
 ## Introducción:
 
