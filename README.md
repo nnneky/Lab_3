@@ -130,7 +130,9 @@ El espectrograma del Micrófono 2 muestra una distribución de frecuencias con c
 La distribución espectral muestra que el micrófono 1 podría tener una mejor captura de la voz sin tanta contaminación de ruido.
 
 
+## Analísis de SNR: 
 
+El snr es la relación entre la potencia de la señal y la potencia del ruido en un sistema. Se expresa en decibelios (dB) y mide la calidad de la señal, un valor alto genera menos interferencia entre el ruido y la señal orignial 
 
 
 
