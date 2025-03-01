@@ -182,6 +182,14 @@ Por otro lado, en algunos momentos se escucha la segunda voz, lo que indica que 
 El snr es la relación entre la potencia de la señal y la potencia del ruido en un sistema. Se expresa en decibelios (dB) y mide la calidad de la señal, un valor alto genera menos interferencia entre el ruido y la señal orignial 
 
 
+### referencias:
+- todas las imagenes descritas en este repositorio son de autoria propia de los desarrolladores del mismo.
+- Hyvärinen, A., & Oja, E. (2000). Independent component analysis: algorithms and applications. Neural Networks: The Official Journal of the International Neural Network Society, 13(4–5), 411–430. https://doi.org/10.1016/s0893-6080(00)00026-5
+- Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J., van der Walt, S. J., Brett, M., Wilson, J., Millman, K. J., Mayorov, N., Nelson, A. R. J., Jones, E., Kern, R., Larson, E., … Vázquez-Baeza, Y. (2020). SciPy 1.0: fundamental algorithms for scientific computing in Python. Nature Methods, 17(3), 261–272. https://doi.org/10.1038/s41592-019-0686-2
+- Harris, F. J. (1978). On the use of windows for harmonic analysis with the discrete Fourier transform. Proceedings of the IEEE. Institute of Electrical and Electronics Engineers, 66(1), 51–83. https://doi.org/10.1109/proc.1978.10837
+
+
+
 
 
 
