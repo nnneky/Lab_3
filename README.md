@@ -48,14 +48,16 @@ def cargar_audio(nombre_archivo): ## la función requiere de un archivo .wav
     return fs, data.astype(np.float32) ## Convierte los datos de audio a float32 (números decimales de precisión simple -> valores entre -1 y 1  que facilitan el 
     procesamiento y evita errores matemáticos)
 
+## Carga los archivos de audio grabados con dos micrófonos y un ruido de fondo a la función cargar_audio.
 fs1, mic1 = cargar_audio("mic_1.wav")
 fs2, mic2 = cargar_audio("mic_2.wav")
 fs_ruido, ruido_blanco = cargar_audio("ruido_blanco.wav")
-# Verificar que las tasas de muestreo sean iguales
-assert fs1 == fs2 == fs_ruido, "Las tasas de muestreo deben ser iguales"
 
+# Verificar que las tasas de muestreo sean iguales
+assert fs1 == fs2 == fs_ruido, "Las tasas de muestreo deben ser iguales" ## mediante assert se valida que las frecuencias de cada audio sean iguales, si no genera un error
+ 
 # Asegurar que todas las señales tengan la misma longitud
-min_len = min(len(mic1), len(mic2), len(ruido_blanco))
+min_len = min(len(mic1), len(mic2), len(ruido_blanco)) ### Se calcula la longitud mínima entre las tres señales, len() devuelven el número de muestras de cada señal de audio
 mic1, mic2, ruido_blanco = mic1[:min_len], mic2[:min_len], ruido_blanco[:min_len]
 
 # Ajustar la intensidad del ruido blanco sin saturar la señal
