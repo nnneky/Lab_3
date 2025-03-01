@@ -29,5 +29,8 @@ Para la grabación de los audios, se decidió utilizar el formato .wav, debido a
 
 A continuación se muestra como se realizó la manipulación de los audios de cada micrófono:
 
+´´´ bash
+AFE
+´´´
 
 
