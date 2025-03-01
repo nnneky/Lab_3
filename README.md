@@ -132,6 +132,18 @@ La distribución espectral muestra que el micrófono 1 podría tener una mejor c
 
 Para poder aislar solo una voz y poder reproducirla, se deben separar los componentes de la señal combinada y filtrarlos, ya que por medio de los gráficos de la FFT y el espectrográma se observo mayor presencia de energía entre las frecuencias de entre 300 y 5000 Hz se realizará un filtro digital para ese intervalo.
 
+```bash
+
+## función para el filtro digital
+def filtro_pasabanda(signal, fs, lowcut, highcut, order=6): ## variables y parametros  para la función
+    nyquist = 0.5 * fs ## la frecuencia de Nyquist (mitad de la frecuencia de muestreo)es el límite superior para representar señales sin aliasing.
+    low = lowcut / nyquist ## se normaliza la frecuencia baja respecto a la frecuencia de Nyquist
+    high = highcut / nyquist ## se normaliza la frecuencia alta respecto a la frecuencia de Nyquist
+    b, a = butter(order, [low, high], btype='band') ## se crean las especificaciones del filtro
+    return filtfilt(b, a, signal) ## se aplica el filtro dos veces para que no haya desface
+
+
+```
 
 
 
