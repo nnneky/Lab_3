@@ -60,13 +60,12 @@ assert fs1 == fs2 == fs_ruido, "Las tasas de muestreo deben ser iguales" ## medi
 min_len = min(len(mic1), len(mic2), len(ruido_blanco)) ### Se calcula la longitud mínima entre las tres señales, len() devuelven el número de muestras de cada señal de audio, min() toma el valor más pequeño de esas tres longitudes y lo almacena en min_len.
 mic1, mic2, ruido_blanco = mic1[:min_len], mic2[:min_len], ruido_blanco[:min_len] ## recorta todas las señales de audio a la misma longitud mínima para que tengan la misma cantidad de muestras.
 
-# Ajustar la intensidad del ruido blanco sin saturar la señal
-factor_ruido = 0.3 * (np.max(np.abs(mic1)) / np.max(np.abs(ruido_blanco))) ## cálcula la relación de maximos de cada señal y lo reduce aproximadamente un 30% para que el ruido blanco no sea más fuerte que el de los microfonos
-ruido_blanco *= factor_ruido ## se le aplica el factor de ruido al ruido blanco
+# --- Combinación y Reducción de Ruido ---
+mic_combinado = (mic1 + mic2) / 2.0 ## Se promedian las señales de Micrófono 1 y Micrófono 2, combinando ambas en una sola, evitando diferencias individuales
+factor_ruido = 0.3 * (np.max(np.abs(mic_combinado)) / np.max(np.abs(ruido_blanco))) ## se reduce la amplitud del ruido un 30%
+ruido_blanco *= factor_ruido ## se palica lo anterior al ruido blanco
+mic_combinado_ruidoso = mic_combinado - ruido_blanco ## se purga la señal combinada del ruido blanco
 
-# Restar el ruido a las señales de micrófono
-mic1_ruidoso = mic1 - ruido_blanco ## Elimina el ruido blanco de cada señal restándolo de las grabaciones de los micrófonos.
-mic2_ruidoso = mic2 - ruido_blanco
 ```
 ## FFT Y ESPECTROGRAMAS:
 
