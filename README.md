@@ -181,7 +181,27 @@ Por otro lado, en algunos momentos se escucha la segunda voz, lo que indica que 
 
 El snr es la relación entre la potencia de la señal y la potencia del ruido en un sistema. Se expresa en decibelios (dB) y mide la calidad de la señal, un valor alto genera menos interferencia entre el ruido y la señal orignial 
 
-Para este caso se cálculo el snr de cada señal de audio y posteriormente de la señal filtrada, esto mediante el diseño de una función 
+Para este caso se cálculo el snr de cada señal de audio y posteriormente de la señal filtrada, esto mediante el diseño de una función:
+
+``` bash
+
+def calcular_snr(señal_original, señal_procesada):
+    señal_potencia = np.mean(señal_original ** 2) ## se calcula la potencia de la señal 
+    ruido_potencia = np.mean((señal_original - señal_procesada) ** 2)  ## se calcula la potencia del ruido
+    return 10 * np.log10(señal_potencia / ruido_potencia) ## se calcula el snr
+
+## llama a la función de calcular el snr 
+snr_mic1 = calcular_snr(mic1, mic_combinado)
+snr_mic2 = calcular_snr(mic2, mic_combinado)
+snr_filtrada = calcular_snr(mic_combinado,fuente_filtrada)
+
+
+## imprime los resultados
+print(f"SNR de Microfono 1: {snr_mic1:.2f} dB")
+print(f"SNR de Microfono 2: {snr_mic2:.2f} dB")
+print(f"SNR de la señal filtrada: {snr_filtrada:.2f} dB")
+```
+
 
 
 
