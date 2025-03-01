@@ -96,6 +96,10 @@ Despues de ejecutar estas lineas de código de obtuvieron los siguientes gráfic
 
 ![image](https://github.com/user-attachments/assets/febdeae6-25e9-4947-a115-5d15a33f8741)
 
+
+![image](https://github.com/user-attachments/assets/2de7af55-a3c3-4e5b-8959-bf4cefa60be3)
+
+
 Mediante estas imagenes podemos dectar en que frecuencias se presenta más energía, para este caso se estima que el rango podria ser entre 500 y 3000 Hz
 
 Luego de cálcular la FFT, se procede a realizar el espectograma:
@@ -156,6 +160,8 @@ sd.play(fuente_filtrada, fs1) ## reproduce la señal filtrada
 sd.wait()
 
 ```
+Al igual que a las señales de audio anteriores, mediante funciones creadas se determinó el gráfico de FFT y el espectrograma
+
 
 
 
