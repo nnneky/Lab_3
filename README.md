@@ -100,7 +100,19 @@ Despues de ejecutar estas lineas de código de obtuvieron los siguientes gráfic
 
 Mediante estas imagenes podemos dectar en que frecuencias se presenta más energía, para este caso se estima que el rango podria ser entre 500 y 3000 Hz
 
+Luego de cálcular la FFT, se procede a realizar el espectograma:
 
+```bash
+def mostrar_espectrograma(signal, fs, title="Espectrograma"): ## variables necesarias para el proceso
+    plt.figure(figsize=(10, 4))
+    plt.specgram(signal, Fs=fs, NFFT=1024, noverlap=512, cmap="inferno")  # Genera el espectrograma (transforma la señal de audio en una representación tiempo-frecuencia) dividiendo la señal en ventanas ( con 1024 muestras cada una) y solapandola para evitar cortes abruptos
+    plt.title(title)
+    plt.xlabel("Tiempo (s)")
+    plt.ylabel("Frecuencia (Hz)")
+    plt.colorbar(label="Intensidad (dB)")
+    plt.show()
+
+```
 
 
 
