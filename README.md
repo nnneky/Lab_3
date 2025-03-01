@@ -128,13 +128,11 @@ El espectrograma del Micrófono 1 muestra una mayor presencia de energía en fre
 
 ![image](https://github.com/user-attachments/assets/cffb56aa-c0c1-4bcf-af56-97873b430aa3)
 
-El espectrograma del Micrófono 2 muestra una distribución de frecuencias con componentes fuertes alrededor de 10 kHz y 12.5 kHz, lo que sugiere presencia de ruido constante o interferencias. La mayor concentración de energía está en las frecuencias bajas y medias (debajo de 5 kHz), lo cual es típico de señales de voz.
+El espectrograma del Micrófono 2 muestra una distribución de frecuencias con componentes fuertes alrededor de 10 kHz y 12.5 kHz, lo que sugiere presencia de ruido constante o interferencias. La mayor concentración de energía está en las frecuencias bajas y medias (debajo de 5 kHz), lo cual es típico de señales de voz.La distribución espectral muestra que el micrófono 1 podría tener una mejor captura de la voz sin tanta contaminación de ruido.
 
 
 ![image](https://github.com/user-attachments/assets/aa86d648-263c-4496-842d-743ab0041d2c)
 
-
-La distribución espectral muestra que el micrófono 1 podría tener una mejor captura de la voz sin tanta contaminación de ruido.
 
 ## SEPARACIÓN DE COMPONENTES (ICA) Y FILTRADO:
 
