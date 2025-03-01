@@ -29,8 +29,17 @@ Para la grabación de los audios, se decidió utilizar el formato .wav, debido a
 
 A continuación se muestra como se realizó la manipulación de los audios de cada micrófono:
 
-´´´ bash
-AFE
-´´´
+
+```bash
+import numpy as np
+import scipy.io.wavfile as wav
+import matplotlib.pyplot as plt
+from scipy.signal import butter, filtfilt
+from sklearn.decomposition import FastICA
+import sounddevice as sd
+
+
+```
+
 
 
