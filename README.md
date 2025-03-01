@@ -67,9 +67,8 @@ ruido_blanco *= factor_ruido ## se le aplica el factor de ruido al ruido blanco
 # Restar el ruido a las señales de micrófono
 mic1_ruidoso = mic1 - ruido_blanco ## Elimina el ruido blanco de cada señal restándolo de las grabaciones de los micrófonos.
 mic2_ruidoso = mic2 - ruido_blanco
-
-
 ```
+## FFT y ESPECTROGRAMAS:
 
 
 
