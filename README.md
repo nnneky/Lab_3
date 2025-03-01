@@ -210,6 +210,18 @@ El método ICA permitió la separación de las fuentes de audio, pero presentó 
 Ademas se debe destacar, que la cantidad de ruido al momento de las grabaciones pudo afectar de forma directa en e snr, dado que a pesar de que se trató de disminuir en la mayor proporción el ruido del ambiente no fue posible en una medida contundente, por ello puede que el método ICA no fuera muy eficiente para este caso.
 
 
+## Analísis de SNR: 
+
+El SNR es la relación entre la potencia de la señal y la potencia del ruido en un sistema. Se expresa en decibelios (dB) y es un indicador clave de la calidad de la señal. Un SNR alto significa menor interferencia entre el ruido y la señal original, mientras que un SNR bajo indica una mayor contaminación por ruido.
+
+En este caso, el SNR de la señal filtrada fue bastante bajo, con un valor de 0 dB. Sin embargo, la señal sigue siendo audible y cumple con los estándares establecidos en la guía.
+
+Respecto a los valores del SNR de los micrófonos:
+
+Micrófono 1: SNR de 4.47 dB, lo que indica una menor contaminación por ruido en promedio.
+Micrófono 2: SNR de 0.94 dB, lo que refleja una mayor contaminación de la señal por ruido.
+Este análisis muestra que el micrófono 1 ofrece una mejor calidad de señal en comparación con el micrófono 2.
+
 ## CONCLUSIONES:
 
 El Análisis de Componentes Independientes (ICA) es una técnica útil para la separación de fuentes de audio, permitiendo aislar parcialmente las voces. Sin embargo, presenta limitaciones cuando las señales comparten frecuencias y magnitudes similares, lo que afecta la calidad de la separación. Además, la intensidad de la voz principal se redujo y la segunda voz aún era perceptible en algunos momentos. Como resultado, se obtuvo un SNR de 0 dB, indicando que la separación no fue completamente efectiva.
