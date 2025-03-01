@@ -1,0 +1,106 @@
+import numpy as np
+import scipy.io.wavfile as wav
+import matplotlib.pyplot as plt
+from scipy.signal import butter, filtfilt
+from sklearn.decomposition import FastICA
+import sounddevice as sd
+
+def cargar_audio(nombre_archivo):
+    """Carga un archivo de audio y devuelve la tasa de muestreo y los datos."""
+    fs, data = wav.read(nombre_archivo)
+    return fs, data.astype(np.float32)
+
+def filtro_pasabanda(signal, fs, lowcut, highcut, order=6):
+    """Aplica un filtro pasa banda para aislar una frecuencia específica."""
+    nyquist = 0.5 * fs
+    low = lowcut / nyquist
+    high = highcut / nyquist
+    b, a = butter(order, [low, high], btype='band')
+    return filtfilt(b, a, signal)
+
+def calcular_snr(señal_original, señal_procesada):
+    """Calcula la relación señal a ruido (SNR)."""
+    señal_potencia = np.mean(señal_original ** 2) + 1e-10  # Evitar ceros
+    ruido_potencia = np.mean((señal_procesada - señal_original) ** 2) + 1e-10  # Evitar ceros
+    return 10 * np.log10(señal_potencia / ruido_potencia)
+
+def calcular_fft(signal, fs, title="Espectro de Frecuencia"):
+    """Calcula y grafica la FFT de la señal."""
+    freqs = np.fft.fftfreq(len(signal), 1/fs)
+    fft_values = np.fft.fft(signal)
+    plt.figure()
+    plt.plot(freqs[:len(freqs)//2], np.abs(fft_values[:len(freqs)//2]))
+    plt.title(title)
+    plt.xlabel("Frecuencia (Hz)")
+    plt.ylabel("Magnitud")
+    plt.show()
+
+def mostrar_espectrograma(signal, fs, title="Espectrograma"):
+    """Muestra el espectrograma de una señal."""
+    plt.figure(figsize=(10, 4))
+    plt.specgram(signal, Fs=fs, NFFT=1024, noverlap=512, cmap="inferno")
+    plt.title(title)
+    plt.xlabel("Tiempo (s)")
+    plt.ylabel("Frecuencia (Hz)")
+    plt.colorbar(label="Intensidad (dB)")
+    plt.show()
+
+# Cargar señales de los micrófonos y ruido grabado
+fs1, mic1 = cargar_audio("mic_1.wav")
+fs2, mic2 = cargar_audio("mic_2.wav")
+fs_ruido, ruido_blanco = cargar_audio("ruido_blanco.wav")
+
+# Verificar que las tasas de muestreo sean iguales
+assert fs1 == fs2 == fs_ruido, "Las tasas de muestreo deben ser iguales"
+
+# Asegurar que todas las señales tengan la misma longitud
+min_len = min(len(mic1), len(mic2), len(ruido_blanco))
+mic1, mic2, ruido_blanco = mic1[:min_len], mic2[:min_len], ruido_blanco[:min_len]
+
+# Combinar señales de los dos micrófonos
+mic_combinado = (mic1 + mic2) / 2.0
+
+# Ajustar la intensidad del ruido blanco sin saturar la señal
+factor_ruido = 0.3 * (np.max(np.abs(mic_combinado)) / np.max(np.abs(ruido_blanco)))
+ruido_blanco *= factor_ruido
+
+# Restar el ruido a la señal combinada
+mic_combinado_ruidoso = mic_combinado - ruido_blanco
+
+# Aplicar ICA con una sola componente (extraer una única voz)
+ica = FastICA(n_components=1, max_iter=1000, tol=0.0001)
+fuente_extraida = ica.fit_transform(mic_combinado_ruidoso.reshape(-1, 1)).flatten()
+
+# Aplicar filtro pasabanda para aislar la voz
+fuente_filtrada = filtro_pasabanda(fuente_extraida, fs1, 500, 3000, order=8)
+
+# Normalizar sin distorsión
+fuente_filtrada /= np.max(np.abs(fuente_filtrada))
+
+# Guardar la señal filtrada
+wav.write("fuente_unica_filtrada.wav", fs1, np.int16(fuente_filtrada * 32767))
+
+# Reproducir la señal filtrada
+sd.play(fuente_filtrada, fs1)
+sd.wait()
+
+# Evaluar la mejora usando SNR
+snr_mic1 = calcular_snr(mic1, mic_combinado)
+snr_mic2 = calcular_snr(mic2, mic_combinado)
+snr_filtrada = calcular_snr(mic_combinado, fuente_filtrada)
+
+print(f"SNR de Microfono 1: {snr_mic1:.2f} dB")
+print(f"SNR de Microfono 2: {snr_mic2:.2f} dB")
+print(f"SNR de la señal filtrada: {snr_filtrada:.2f} dB")
+
+# Graficar FFT
+calcular_fft(mic1, fs1, title="FFT de Microfono 1")
+calcular_fft(mic2, fs1, title="FFT de Microfono 2")
+calcular_fft(mic_combinado, fs1, title="FFT de Señal Combinada")
+calcular_fft(fuente_filtrada, fs1, title="FFT de Fuente Filtrada")
+
+# Graficar espectrogramas
+mostrar_espectrograma(mic1, fs1, title="Espectrograma de Microfono 1")
+mostrar_espectrograma(mic2, fs1, title="Espectrograma de Microfono 2")
+mostrar_espectrograma(mic_combinado, fs1, title="Espectrograma de Señal Combinada")
+mostrar_espectrograma(fuente_filtrada, fs1, title="Espectrograma de Fuente Filtrada")
