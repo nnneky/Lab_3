@@ -98,8 +98,7 @@ Despues de ejecutar estas lineas de código de obtuvieron los siguientes gráfic
 
 ![image](https://github.com/user-attachments/assets/febdeae6-25e9-4947-a115-5d15a33f8741)
 
-
-
+Mediante estas imagenes podemos dectar en que frecuencias se presenta más energía, para este caso se estima que el rango podria ser entre 500 y 3000 Hz
 
 
 
