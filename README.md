@@ -72,6 +72,22 @@ mic2_ruidoso = mic2 - ruido_blanco
 
 Para la realización del espectograma de cada señal de audio, se debe calcualr la FFT para obtener información de la señal en el dominio de la frecuencia, este proceso se muestra en las siguientes lineas de código: 
 
+```bash
+## función para cálcular la FFT de la señal y gráficarla
+def calcular_fft(signal, fs, title="Espectro de Frecuencia"): ## se definen los datos que necesita la función  (señal de audio, frecuencia de muestreo)
+    """Calcula y grafica la FFT de la señal."""
+    freqs = np.fft.fftfreq(len(signal), 1/fs)  # Calcula las frecuencias mediante una función de numpy
+    fft_values = np.fft.fft(signal)  # Calcula la FFT de la señal
+    plt.figure()
+    plt.plot(freqs[:len(freqs)//2], np.abs(fft_values[:len(freqs)//2]))  # Grafica la magnitud usando solo la mitad de las frecuencias (parte positiva)
+    plt.title(title)
+    plt.xlabel("Frecuencia (Hz)")
+    plt.ylabel("Magnitud")
+    plt.show()
+```
+
+
+
 
 
 
