@@ -181,6 +181,9 @@ Por otro lado, en algunos momentos se escucha la segunda voz, lo que indica que 
 
 El snr es la relación entre la potencia de la señal y la potencia del ruido en un sistema. Se expresa en decibelios (dB) y mide la calidad de la señal, un valor alto genera menos interferencia entre el ruido y la señal orignial 
 
+## CONCLUSIONES:
+
+El Análisis de Componentes Independientes (ICA) es una técnica útil para la separación de fuentes de audio, permitiendo aislar parcialmente las voces. Sin embargo, presenta limitaciones cuando las señales comparten frecuencias y magnitudes similares, lo que afecta la calidad de la separación. Además, la intensidad de la voz principal se redujo y la segunda voz aún era perceptible en algunos momentos. Como resultado, se obtuvo un SNR de 0 dB, indicando que la separación no fue completamente efectiva. 
 
 ### referencias:
 - todas las imagenes descritas en este repositorio son de autoria propia de los desarrolladores del mismo.
