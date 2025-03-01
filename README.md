@@ -119,10 +119,14 @@ De lo anterior se obtuvo lo siguiente:
 
 
 ![image](https://github.com/user-attachments/assets/73ced020-32f4-41b6-904d-8a82fa2a3040)
+El espectrograma del Micrófono 1 muestra una mayor presencia de energía en frecuencias bajas y medias (entre 0 y 5 kHz), lo cual es típico de una señal de voz.
 
 
 ![image](https://github.com/user-attachments/assets/cffb56aa-c0c1-4bcf-af56-97873b430aa3)
 
+El espectrograma del Micrófono 2 muestra una distribución de frecuencias con componentes fuertes alrededor de 10 kHz y 12.5 kHz, lo que sugiere presencia de ruido constante o interferencias. La mayor concentración de energía está en las frecuencias bajas y medias (debajo de 5 kHz), lo cual es típico de señales de voz. 
+
+La distribución espectral muestra que el micrófono 1 podría tener una mejor captura de la voz sin tanta contaminación de ruido.
 
 
 
