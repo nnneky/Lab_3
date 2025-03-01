@@ -201,12 +201,18 @@ print(f"SNR de Microfono 1: {snr_mic1:.2f} dB")
 print(f"SNR de Microfono 2: {snr_mic2:.2f} dB")
 print(f"SNR de la señal filtrada: {snr_filtrada:.2f} dB")
 ```
+Al realizar cada uno de estos snr se obtuvieron los siguientes resultado:
 
+![image](https://github.com/user-attachments/assets/c5b4773c-1a67-4296-82c1-6e45f133a7ec)
 
+El método ICA permitió la separación de las fuentes de audio, pero presentó limitaciones debido a la similitud en frecuencias entre las voces. Como resultado, la señal filtrada obtuvo un SNR cercano a 0 dB, indicando que la cantidad de señal útil y ruido es casi la misma. Esto sugiere que, aunque ICA es una herramienta poderosa para la separación de señales, su efectividad depende de factores como la diferencia espectral entre las fuentes y la configuración de los filtros aplicados.
+
+Ademas se debe destacar, que la cantidad de ruido al momento de las grabaciones pudo afectar de forma directa en e snr, dado que a pesar de que se trató de disminuir en la mayor proporción el ruido del ambiente no fue posible en una medida contundente, por ello puede que el método ICA no fuera muy eficiente para este caso.
 
 
 ## CONCLUSIONES:
 
+El Análisis de Componentes Independientes (ICA) es una técnica útil para la separación de fuentes de audio, permitiendo aislar parcialmente las voces. Sin embargo, presenta limitaciones cuando las señales comparten frecuencias y magnitudes similares, lo que afecta la calidad de la separación. Además, la intensidad de la voz principal se redujo y la segunda voz aún era perceptible en algunos momentos. Como resultado, se obtuvo un SNR de 0 dB, indicando que la separación no fue completamente efectiva.
 
 
 
