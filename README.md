@@ -25,18 +25,19 @@ En este laboratorio, se llevó a cabo un montaje utilizando dos micrófonos y do
 
 ![Captura de pantalla 2025-02-28 094614](https://github.com/user-attachments/assets/36406f97-a59a-46fb-882b-feaf321db9c6)
 
-Para la grabación de los audios, se decidió utilizar el formato .wav, debido a la facilidad de manipulación de la extensión mediante la librería sounddevice, además se eligió una frecuencia de muestreo de audio común (44 kHz) ya que esta nos proporciona equilibrio entre calidad y eficiencia en la reproducción del sonido, evitando problemas como el aliasing (distorsión que ocurre cuando una señal se muestrea a una frecuencia insuficiente, causando que las altas frecuencias se confundan con frecuencias más bajas). Como primer paso, se procedio a encender las grabaciones en cada micrófono al mismo tiempo, para esta oportunidad se grabaron 20 segundos de ruido blanco.Seguido a esto se procedio a grabar las voces cojuntas, cada persona relato una fabula diferente del escritor Rafael Pombo, pronunciandolas al tiempo, haciendo que ambas voces se encuentren en la grabación, esto durante aproximadamente 20 segundos.
+Para la grabación de los audios, se decidió utilizar el formato .wav, debido a la facilidad de manipulación de la extensión mediante la librería  scipy.io.wavfile, además se eligió una frecuencia de muestreo de audio común (44 kHz) ya que esta nos proporciona equilibrio entre calidad y eficiencia en la reproducción del sonido, evitando problemas como el aliasing (distorsión que ocurre cuando una señal se muestrea a una frecuencia insuficiente, causando que las altas frecuencias se confundan con frecuencias más bajas). Como primer paso, se procedio a encender las grabaciones en cada micrófono al mismo tiempo, para esta oportunidad se grabaron 20 segundos de ruido blanco.Seguido a esto se procedio a grabar las voces cojuntas, cada persona relato una fabula diferente del escritor Rafael Pombo, pronunciandolas al tiempo, haciendo que ambas voces se encuentren en la grabación, esto durante aproximadamente 20 segundos.
 
-A continuación se muestra como se realizó la manipulación de los audios de cada micrófono:
+A continuación se muestra como se realizó la manipulación de los audios de cada micrófono, según los items requéridos.
 
 
 ```bash
-import numpy as np
-import scipy.io.wavfile as wav
-import matplotlib.pyplot as plt
-from scipy.signal import butter, filtfilt
-from sklearn.decomposition import FastICA
-import sounddevice as sd
+## librerias utilizadas para el desarrollo del código 
+import numpy as np ## Permite trabajar con arreglos numéricos y cálculos matemáticos.
+import scipy.io.wavfile as wav ## leer y escribir archivos de audio en formato .wav
+import matplotlib.pyplot as plt ## Para graficar la FFT y espectrogramas.
+from scipy.signal import butter, filtfilt ## Para aplicar filtros a las señales de audio.
+from sklearn.decomposition import FastICA ## Para realizar la separación de fuentes con Análisis de Componentes Independientes (ICA).
+import sounddevice as sd ## Para reproducir el audio procesado.
 
 
 ```
