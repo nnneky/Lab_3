@@ -68,7 +68,10 @@ ruido_blanco *= factor_ruido ## se le aplica el factor de ruido al ruido blanco
 mic1_ruidoso = mic1 - ruido_blanco ## Elimina el ruido blanco de cada señal restándolo de las grabaciones de los micrófonos.
 mic2_ruidoso = mic2 - ruido_blanco
 ```
-## FFT y ESPECTROGRAMAS:
+## FFT Y ESPECTROGRAMAS:
+
+Para la realización del espectograma de cada señal de audio, se debe calcualr la FFT para obtener información de la señal en el dominio de la frecuencia, este proceso se muestra en las siguientes lineas de código: 
+
 
 
 
