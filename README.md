@@ -1,9 +1,10 @@
-# Laboratorio 3 ||  Procesamiento Digital de Señales 
-Laboratorio numero 3 de Procesamiento Digital de Señales | Isabel Sofía Maldonado Roa y Daniel Guillermo Espinosa Parra.
+# Laboratorio 3 || FIESTA DE COCTEL
+
+Laboratorio número 3 de Procesamiento Digital de Señales || Isabel Sofía Maldonado Roa y Daniel Guillermo Espinosa Parra.
 
 ## Introducción:
 
-Este informe analiza el problema del cóctel donde multiples voces se mezclan en un entorno con bastante cantidad de ruido. En este laboratorio se capturaron señales de voz con microfonos  y se aplicaron técnicas de procesamiento digital de señales como la transformada de fourier y el ICA, para poder separar una vos ezpecifica, el objetivo es evaluar la efectividad de esteos métodos para la extracción de señales acusticas en entornos complejos. 
+Este informe analiza el problema del cóctel, donde múltiples voces se combinan en un entorno con un alto nivel de ruido. Durante el laboratorio, se capturaron señales de audio mediante micrófonos y se aplicaron técnicas de procesamiento digital, como la transformada de Fourier y el análisis de componentes independientes (ICA), con el fin de aislar una voz específica. El objetivo es evaluar la eficacia de dichos métodos en la extracción de señales acústicas dentro de escenarios complejos.
 
 
 ## Requiermimentos: 
