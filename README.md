@@ -151,7 +151,7 @@ def filtro_pasabanda(signal, fs, lowcut, highcut, order=6): ## variables y param
 ### Separación de Fuentes con ICA
 ica = FastICA(n_components=1, max_iter=1000, tol=0.0001) ## Se Crea un objeto FastICA para realizar la separación de fuentes
 fuente_extraida = ica.fit_transform(mic_combinado_ruidoso.reshape(-1, 1)).flatten() ## Aplica el algoritmo ICA para extraer la fuente independiente más significativa.
-fuente_filtrada = filtro_pasabanda(fuente_extraida, fs1, 500, 3000, order=8) ## Aplica un filtro pasa banda para dejar solo las frecuencias con más energía (voz)(500-3000 Hz) y eliminar ruidos 
+fuente_filtrada = filtro_pasabanda(fuente_extraida, fs1, 500, 3000, order=8) ## Aplica un filtro pasa banda para dejar solo las frecuencias con más energía (voz)(500-3000 Hz) y eliminar ruidos
 
 # Normalización
 fuente_filtrada /= np.max(np.abs(fuente_filtrada)) ## Normaliza la señal para que su valor máximo sea 1 o -1, evitando saturación
@@ -165,6 +165,16 @@ sd.wait()
 Al igual que a las señales de audio anteriores, mediante funciones creadas se determinó el gráfico de FFT y el espectrograma
 
 
+![image](https://github.com/user-attachments/assets/9fd7f390-2fd4-49c4-9448-4e756386f43c)
+
+
+![image](https://github.com/user-attachments/assets/6c258db5-cd5b-42b1-a511-092fa43beadd)
+
+Se observa de la imagen anterior que el filtro fue aplicado de manera correcta, debido a que se observa distribuciión de la energía dentro de los rangos del filtro.
+
+*A pesar de los métodos aplicados a la señal y la separación de sus componentes, la señal filtrada aún presenta cierta distorsión. Además, la voz principal (especialmente la voz femenina) se percibe con menor volumen. Esto podría deberse al orden del filtro aplicado, que afecta la atenuación y la selectividad en la separación de frecuencias.
+
+Por otro lado, en algunos momentos se escucha la segunda voz, lo que indica que en varios intervalos ambas voces comparten frecuencias y magnitudes similares. Esto dificulta la separación efectiva mediante Análisis de Componentes Independientes (ICA) y filtrado pasa banda, ya que el algoritmo asume que las fuentes son estadísticamente independientes, lo cual no siempre se cumple en señales de voz superpuestas.
 
 
 ## Analísis de SNR: 
