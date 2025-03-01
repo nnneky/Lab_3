@@ -25,4 +25,6 @@ En este laboratorio, se llevó a cabo un montaje utilizando dos micrófonos y do
 
 ![Captura de pantalla 2025-02-28 094614](https://github.com/user-attachments/assets/36406f97-a59a-46fb-882b-feaf321db9c6)
 
-A continuación se muestra como 
+Para la grabación de los audios utilizados, se decidió utiilizar el formato .wav debido a la facilidad de manipulación de esta exxtensión mediante la librería sounddevice, además se eligió una frecuencia de muestreo de audio común (44 kHz) ya que esta nos proporciona equilibrio entre calidad y eficiencia en la reproducción del sonido, evitando problemas como el aliasing (distorsión que ocurre cuando una señal se muestrea a una frecuencia insuficiente, causando que las altas frecuencias se confundan con frecuencias más bajas). Como primer paso, se procedio a encender las grabaciones en cada micrófono al mismo tiempo, para esta oportunidad se grabaron 20 segundos de ruido blanco.Seguido a esto se procedio a grabar las voces cojuntas, cada persona relato una fabula diferente del escritor Rafael Pombo, se pronunciaron al tiempo, haciendo que ambas voces se encuentren en la grabación.
+
+
