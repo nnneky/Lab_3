@@ -93,6 +93,18 @@ calcular_fft(fuente_final, fs1, title="FFT de Fuente Filtrada")
 Despues de ejecutar estas lineas de código de obtuvieron los siguientes gráficos de la FFT:
 
 
+![image](https://github.com/user-attachments/assets/23e8d217-155b-47dc-a650-34ad3069c257)
+
+
+![image](https://github.com/user-attachments/assets/febdeae6-25e9-4947-a115-5d15a33f8741)
+
+
+
+
+
+
+
+
 
 
 
