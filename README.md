@@ -39,8 +39,36 @@ from scipy.signal import butter, filtfilt ## Para aplicar filtros a las señales
 from sklearn.decomposition import FastICA ## Para realizar la separación de fuentes con Análisis de Componentes Independientes (ICA).
 import sounddevice as sd ## Para reproducir el audio procesado.
 
+## Cargar señales de los micrófonos y ruido grabado
+## Función diseñada para leer los archivos de audio
+def cargar_audio(nombre_archivo): ## la función requiere de un archivo .wav
+    ##Carga un archivo de audio y devuelve la tasa de muestreo y los datos.
+    fs, data = wav.read(nombre_archivo) ## se llama a la función wav.read de la libreria scipy.io.wavfile para leer el audio, la cual devolvera la frecuencia de muestreo y 
+    un arreglo de números que representan el sonido
+    return fs, data.astype(np.float32) ## Convierte los datos de audio a float32 (números decimales de precisión simple -> valores entre -1 y 1  que facilitan el 
+    procesamiento y evita errores matemáticos)
+
+fs1, mic1 = cargar_audio("mic_1.wav")
+fs2, mic2 = cargar_audio("mic_2.wav")
+fs_ruido, ruido_blanco = cargar_audio("ruido_blanco.wav")
+# Verificar que las tasas de muestreo sean iguales
+assert fs1 == fs2 == fs_ruido, "Las tasas de muestreo deben ser iguales"
+
+# Asegurar que todas las señales tengan la misma longitud
+min_len = min(len(mic1), len(mic2), len(ruido_blanco))
+mic1, mic2, ruido_blanco = mic1[:min_len], mic2[:min_len], ruido_blanco[:min_len]
+
+# Ajustar la intensidad del ruido blanco sin saturar la señal
+factor_ruido = 0.3 * (np.max(np.abs(mic1)) / np.max(np.abs(ruido_blanco)))
+ruido_blanco *= factor_ruido
+
+# Restar el ruido a las señales de micrófono
+mic1_ruidoso = mic1 - ruido_blanco
+mic2_ruidoso = mic2 - ruido_blanco
+
 
 ```
+
 
 
 
